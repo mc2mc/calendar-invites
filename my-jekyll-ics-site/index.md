@@ -5,8 +5,8 @@ title: Home
 
 ## Calendar Events
 
-{% if site.data.ics_events and site.data.ics_events.size > 0 %}
-  {% for year_data in site.data.ics_events %}
+{% if site.data.events %}
+  {% for year_data in site.data.events %}
     {% assign year = year_data[0] %}
     {% assign events = year_data[1] %}
     
@@ -15,7 +15,7 @@ title: Home
       <ul class="event-list">
         {% for event in events %}
           <li>
-            <a href="{{ event.download_url | relative_url }}" download>{{ event.summary }}</a>
+            <a href="{{ event.file | prepend: '/' | relative_url }}" download>{{ event.name }}</a>
           </li>
         {% endfor %}
       </ul>
