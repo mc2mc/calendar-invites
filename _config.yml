@@ -1,6 +1,6 @@
 title: Calendar Invites
 description: A collection of ICS calendar invites organized by year
-baseurl: ""
+baseurl: "/calendar-invites"
 url: "https://mc2mc.github.io"
 repository: mc2mc/calendar-invites
 
