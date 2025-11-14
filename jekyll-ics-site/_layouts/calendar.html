@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/calendar.css' | relative_url }}">
+</head>
+<body>
+  {% include header.html %}
+  
+  <main class="calendar-container">
+    <h1>Event Calendar</h1>
+    <div class="calendar">
+      {% for event in site.data.events %}
+        <div class="event">
+          <h2>{{ event.summary }}</h2>
+          <p><strong>Date:</strong> {{ event.start | date: "%B %d, %Y" }}</p>
+          <p><strong>Location:</strong> {{ event.location }}</p>
+          <p>{{ event.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  {% include footer.html %}
+  <script src="{{ '/assets/js/calendar.js' | relative_url }}"></script>
+</body>
+</html>
