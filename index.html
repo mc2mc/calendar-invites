@@ -31,7 +31,7 @@ title: Calendar Invites
           <ul class="calendar-list">
             {% for file in year_files %}
               {% assign filename = file.name | split: "." | first %}
-              {% assign display_name = filename | replace: "-", " " | replace: "_", " " | capitalize %}
+              {% assign display_name = filename | capitalize %}
               <li class="calendar-item">
                 <span class="calendar-name">{{ display_name }}</span>
                 <a href="{{ file.path | relative_url }}" class="download-link" download="{{ file.name }}">
