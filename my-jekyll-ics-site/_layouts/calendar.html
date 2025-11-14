@@ -3,14 +3,13 @@
 <head>
   {% include head.html %}
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/calendar.css' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
   
-  <main class="calendar-container">
-    <h1>Event Calendar</h1>
-    <div class="calendar">
+  <main class="calendar">
+    <h1>Calendar Events</h1>
+    <div id="event-list">
       {% for event in site.data.events %}
         <div class="event">
           <h2>{{ event.summary }}</h2>

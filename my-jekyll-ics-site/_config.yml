@@ -1,0 +1,20 @@
+title: My Jekyll ICS Site
+description: A visually appealing site to display ICS calendar events.
+baseurl: ""
+url: "https://yourusername.github.io/my-jekyll-ics-site"
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+permalink: pretty
+
+# Custom settings for ICS display
+ics_file: _data/events.ics
+calendar_layout: calendar.html
