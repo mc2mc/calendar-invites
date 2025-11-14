@@ -5,22 +5,17 @@ title: Home
 
 ## Calendar Events
 
-{% if site.data.events %}
-  {% for year_data in site.data.events %}
-    {% assign year = year_data[0] %}
-    {% assign events = year_data[1] %}
-    
-    <div class="year-section">
-      <h3>{{ year }}</h3>
-      <ul class="event-list">
-        {% for event in events %}
-          <li>
-            <a href="{{ event.file | prepend: '/' | relative_url }}" download>{{ event.name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endfor %}
-{% else %}
-  <p>No calendar events found.</p>
-{% endif %}
+<div class="year-section">
+  <h3>2025</h3>
+  <ul class="event-list">
+    <li><a href="/_data/2025/events.ics" download>Sample Event 1</a></li>
+    <li><a href="/_data/2025/events.ics" download>Sample Event 2</a></li>
+  </ul>
+</div>
+
+<div class="year-section">
+  <h3>2026</h3>
+  <ul class="event-list">
+    <li><a href="/_data/2026/MC2MC Live - The Martian Codebase.ics" download>MC2MC Live: The Martian Codebase</a></li>
+  </ul>
+</div>
