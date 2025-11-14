@@ -1,0 +1,25 @@
+title: Calendar Invites
+description: A collection of ICS calendar invites organized by year
+baseurl: ""
+url: "https://mc2mc.github.io"
+repository: mc2mc/calendar-invites
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Collections for ICS files
+collections:
+  ics:
+    output: true
+    permalink: /:collection/:name
+
+# Include ICS files in the build
+include:
+  - _ics
+
+# Exclude unnecessary files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

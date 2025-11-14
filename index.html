@@ -1,0 +1,50 @@
+---
+layout: default
+title: Calendar Invites
+---
+
+<div class="home">
+  <h1 class="page-heading">Calendar Invites</h1>
+  
+  <p class="intro-text">Download ICS calendar invites to add events to your calendar application.</p>
+
+  {% assign ics_files = site.static_files | where_exp: "file", "file.path contains '/_ics/'" | where_exp: "file", "file.extname == '.ics'" %}
+  
+  {% assign years = ics_files | map: "path" | map: "split", "/" | map: "slice", 2, 1 | map: "first" | uniq | sort | reverse %}
+  
+  {% if years.size > 0 %}
+    {% for year in years %}
+      <div class="year-section">
+        <h2 class="year-heading">{{ year }}</h2>
+        
+        {% assign year_files = ics_files | where_exp: "file", "file.path contains year" | sort: "name" %}
+        
+        {% if year_files.size > 0 %}
+          <ul class="calendar-list">
+            {% for file in year_files %}
+              {% assign filename = file.name | split: "." | first %}
+              {% assign display_name = filename | replace: "-", " " | replace: "_", " " | capitalize %}
+              <li class="calendar-item">
+                <span class="calendar-name">{{ display_name }}</span>
+                <a href="{{ file.path | relative_url }}" class="download-link" download="{{ file.name }}">
+                  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                  </svg>
+                  Download
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="no-events">No events for this year.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="no-events-container">
+      <p class="no-events">No calendar invites available yet.</p>
+      <p class="help-text">Add .ics files to the _ics folder organized by year (e.g., _ics/2025/event-name.ics)</p>
+    </div>
+  {% endif %}
+</div>

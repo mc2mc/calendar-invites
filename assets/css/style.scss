@@ -1,0 +1,132 @@
+---
+---
+
+@import "minima";
+
+/* Calendar Invites Styles */
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.intro-text {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.year-section {
+  margin-bottom: 3rem;
+}
+
+.year-heading {
+  color: #34495e;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #3498db;
+}
+
+.calendar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.calendar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.calendar-item:hover {
+  background-color: #e9ecef;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  text-transform: capitalize;
+}
+
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.download-link:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+}
+
+.download-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.no-events,
+.help-text {
+  color: #95a5a6;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.no-events-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.help-text {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-heading {
+    font-size: 2rem;
+  }
+  
+  .year-heading {
+    font-size: 1.5rem;
+  }
+  
+  .calendar-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .download-link {
+    width: 100%;
+    justify-content: center;
+  }
+}

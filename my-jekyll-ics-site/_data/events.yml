@@ -1,9 +1,0 @@
-2025:
-  - name: "Sample Event 1"
-    file: "_data/2025/events.ics"
-  - name: "Sample Event 2"  
-    file: "_data/2025/events.ics"
-
-2026:
-  - name: "MC2MC Live: The Martian Codebase"
-    file: "_data/2026/MC2MC Live - The Martian Codebase.ics"
