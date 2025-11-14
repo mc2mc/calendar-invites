@@ -10,7 +10,15 @@ title: Calendar Invites
 
   {% assign ics_files = site.static_files | where_exp: "file", "file.path contains '/_ics/'" | where_exp: "file", "file.extname == '.ics'" %}
   
-  {% assign years = ics_files | map: "path" | map: "split", "/" | map: "slice", 2, 1 | map: "first" | uniq | sort | reverse %}
+  {% assign years_array = "" | split: "" %}
+  {% for file in ics_files %}
+    {% assign path_parts = file.path | split: "/" %}
+    {% assign year = path_parts[2] %}
+    {% unless years_array contains year %}
+      {% assign years_array = years_array | push: year %}
+    {% endunless %}
+  {% endfor %}
+  {% assign years = years_array | uniq | sort | reverse %}
   
   {% if years.size > 0 %}
     {% for year in years %}
